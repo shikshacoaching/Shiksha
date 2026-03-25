@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Shiksha Student Portal</title>
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#000066">
+  <link rel="stylesheet" href="style.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+  <!-- PREMIUM SPLASH SCREEN -->
+  <div id="splash-screen">
+    <div class="splash-content">
+      <img src="https://iili.io/qkieRf9.png" alt="Logo" class="splash-logo">
+      <h1 class="splash-title">SHIKSHA</h1>
+      <div class="loading-bar"><div class="progress"></div></div>
+    </div>
+  </div>
+
+  <!-- MAIN APP CONTAINER -->
+  <div id="app-container" class="hidden">
+    <!-- Replace URL below with your actual GAS Web App URL -->
+    <iframe id="portal-frame" src="YOUR_GAS_WEB_APP_URL_HERE" frameborder="0"></iframe>
+  </div>
+
+  <script>
+    window.addEventListener('load', () => {
+      // Smooth Transition Logic
+      setTimeout(() => {
+        const splash = document.getElementById('splash-screen');
+        const app = document.getElementById('app-container');
+        
+        splash.classList.add('fade-out');
+        app.classList.remove('hidden');
+        app.classList.add('fade-in');
+
+        setTimeout(() => { splash.style.display = 'none'; }, 1000);
+      }, 3000); // 3-second splash
+    });
+
+    // Register Service Worker for PWA
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.register('sw.js');
+    }
+  </script>
+</body>
+</html>
