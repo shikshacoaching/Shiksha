@@ -15,8 +15,18 @@ body, html {
     width: 100%;
     height: 100%;
     border: none;
-    display: none; 
+    display: none; /* Hidden by default for Desktop */
     background-color: #ffffff;
+}
+
+/* MOBILE SPEED OPTIMIZATION */
+@media (max-width: 768px) {
+    #loading-screen {
+        display: none !important; /* Kill the 2nd logo immediately */
+    }
+    #app-frame {
+        display: block !important; /* Show content area immediately */
+    }
 }
 
 /* Full-Screen White Splash Screen */
