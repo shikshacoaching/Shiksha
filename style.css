@@ -64,3 +64,15 @@ body, html {
 .splash-text {
     display: none;
 }
+
+/* ELIMINATE DOUBLE LOGO ON MOBILE */
+@media (max-width: 768px) {
+    #loading-screen {
+        display: none !important;
+        opacity: 0 !important;
+        visibility: hidden !important;
+    }
+    #app-frame {
+        display: block !important;
+    }
+}
