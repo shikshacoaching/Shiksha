@@ -4,45 +4,22 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <title>Shiksha Student Portal</title>
+  <link rel="icon" href="https://iili.io/qkieRf9.png">
   <link rel="manifest" href="manifest.json">
-  <meta name="theme-color" content="#000066">
-  <link rel="stylesheet" href="style.css">
-  <!-- Font Awesome -->
+  <meta name="theme-color" content="#00004d">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
 </head>
-<body>
+<body class="bg-gray-100 text-gray-800 font-sans antialiased">
 
-  <!-- PREMIUM SPLASH SCREEN -->
-  <div id="splash-screen">
-    <div class="splash-content">
-      <img src="https://iili.io/qkieRf9.png" alt="Logo" class="splash-logo">
-      <h1 class="splash-title">SHIKSHA</h1>
-      <div class="loading-bar"><div class="progress"></div></div>
-    </div>
-  </div>
+  <!-- Copy the entire <body> content from your original Index.html here -->
+  <!-- Ensure all onclick functions remain the same -->
 
-  <!-- MAIN APP CONTAINER -->
-  <div id="app-container" class="hidden">
-    <!-- Replace URL below with your actual GAS Web App URL -->
-    <iframe id="portal-frame" src="https://script.google.com/a/~/macros/s/AKfycbzSfUlNVzokAMPyu9LlONStMfzDqU-IcJNrd_YR-E6uPbAeFVUg6Dl0yYy19IPylPf_GQ/exec" frameborder="0"></iframe>
-  </div>
-
+  <script src="assets/js/script.js"></script>
   <script>
-    window.addEventListener('load', () => {
-      // Smooth Transition Logic
-      setTimeout(() => {
-        const splash = document.getElementById('splash-screen');
-        const app = document.getElementById('app-container');
-        
-        splash.classList.add('fade-out');
-        app.classList.remove('hidden');
-        app.classList.add('fade-in');
-
-        setTimeout(() => { splash.style.display = 'none'; }, 1000);
-      }, 3000); // 3-second splash
-    });
-
-    // Register Service Worker for PWA
     if ('serviceWorker' in navigator) {
       navigator.serviceWorker.register('sw.js');
     }
