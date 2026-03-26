@@ -18,27 +18,47 @@ body, html {
     display: none; /* Hidden until loaded */
 }
 
-{
-  "name": "SHIKSHA Portal",
-  "short_name": "SHIKSHA",
-  "start_url": "index.html",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#ffffff",
-  "orientation": "portrait",
-  "icons": [
-    {
-      "src": "https://iili.io/qkieRf9.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any maskable"
-    },
-    {
-      "src": "https://iili.io/qkieRf9.png",
-      "sizes": "512x512",
-      "type": "image/png"
-    }
-  ]
+/* Google Drive-style Splash Screen */
+#loading-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff; /* Clean white background */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    transition: opacity 0.5s ease-out, visibility 0.5s;
+}
+
+.splash-logo {
+    width: 100px;
+    height: auto;
+    animation: fadeInScale 0.8s ease-out;
+}
+
+.splash-text {
+    margin-top: 20px;
+    font-size: 24px;
+    font-weight: 500;
+    color: #5f6368; /* Minimal professional grey */
+    letter-spacing: 4px;
+    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    animation: fadeIn 1.2s ease-in;
+}
+
+@keyframes fadeInScale {
+    0% { opacity: 0; transform: scale(0.9); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
 }
 
 @keyframes spin {
