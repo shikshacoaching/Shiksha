@@ -1,76 +1,56 @@
-body, html {
-    margin: 0;
-    padding: 0;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: #000066; /* Match your brand color */
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-}
-
-#app-frame {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border: none;
-    display: none; /* Hidden until loaded */
-}
-
-/* Modern White Splash Screen */
+/* Exact Google Drive Style Splash */
 #loading-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #ffffff; /* Clean white background */
+    background-color: #ffffff !important; /* Pure White Background */
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
-    transition: opacity 0.5s ease-out, visibility 0.5s;
+    z-index: 99999;
+    transition: opacity 0.6s ease-in-out;
 }
 
-.loader-content {
-    text-align: center;
-    animation: fadeInScale 0.8s ease-out;
+/* Center Logo Container */
+.splash-center {
+    flex: 1; /* Pushes footer to the bottom */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .splash-logo {
-    width: 120px; /* Adjust size to match reference */
+    width: 110px; /* Perfectly sized logo */
     height: auto;
-    margin-bottom: 20px;
+    animation: zoomFade 0.8s ease-out;
 }
 
-.splash-text {
+/* Bottom Text Styling */
+.splash-footer {
+    padding-bottom: 60px; /* Space from the bottom of the screen */
+}
+
+.brand-name {
     font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    font-weight: 500;
+    color: #5f6368; /* Google's signature grey text */
     font-size: 24px;
-    color: #5f6368; /* Google-style grey text */
-    letter-spacing: 4px;
+    font-weight: 500;
+    letter-spacing: 2px;
     margin: 0;
-    text-transform: uppercase;
 }
 
-.google-footer {
-    position: absolute;
-    bottom: 40px;
-    color: #80868b;
-    font-family: sans-serif;
-    font-size: 14px;
-    letter-spacing: 1px;
-}
-
-@keyframes fadeInScale {
-    0% { opacity: 0; transform: scale(0.9); }
+/* Animations */
+@keyframes zoomFade {
+    0% { opacity: 0; transform: scale(0.85); }
     100% { opacity: 1; transform: scale(1); }
 }
 
-/* Smooth fade out class */
+/* Smooth fade out when portal is ready */
 .fade-out {
     opacity: 0;
+    pointer-events: none;
     visibility: hidden;
 }
