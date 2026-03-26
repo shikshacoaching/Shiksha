@@ -1,33 +1,18 @@
 const CACHE_NAME = 'shiksha-v1';
 const ASSETS = [
-  './',
-  './index.html',
-  './style.css',
-  './manifest.json',
-  'https://iili.io/qkieRf9.png'
+  '/',
+  '/index.html',
+  '/assets/css/style.css',
+  '/assets/js/script.js',
+  'https://cdn.tailwindcss.com'
 ];
 
-// Install Event - Caches local assets
 self.addEventListener('install', (e) => {
-  e.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => {
-      console.log('Caching assets');
-      return cache.addAll(ASSETS);
-    })
-  );
-  self.skipWaiting(); // Forces the waiting service worker to become the active service worker
+  e.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS)));
 });
 
-// Activate Event
-self.addEventListener('activate', (e) => {
-  e.waitUntil(self.clients.claim()); // Allows the service worker to take control of the page immediately
-});
-
-// Fetch Event - Network first, then Cache
 self.addEventListener('fetch', (e) => {
   e.respondWith(
-    fetch(e.request).catch(() => {
-      return caches.match(e.request);
-    })
+    caches.match(e.request).then(res => res || fetch(e.request))
   );
 });
