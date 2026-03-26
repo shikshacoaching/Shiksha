@@ -7,7 +7,6 @@
   <link rel="icon" href="https://iili.io/qkieRf9.png">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#00004d">
-  
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -15,8 +14,36 @@
 </head>
 <body class="bg-gray-100 text-gray-800 font-sans antialiased">
 
-  <!-- Copy the entire <body> content from your original Index.html here -->
-  <!-- Ensure all onclick functions remain the same -->
+  <!-- Loader -->
+  <div id="loader" style="display:none;" class="fixed inset-0 bg-gray-900/90 z-[9999] flex flex-col justify-center items-center backdrop-blur-sm">
+    <div class="loader-spinner mb-4"></div>
+    <h2 id="loader-text" class="text-white text-xl tracking-widest font-semibold">Processing...</h2>
+  </div>
+
+  <div id="birthday-balloons" class="balloon-container" style="display:none;"></div>
+
+  <!-- START OF PORTAL CONTENT (Paste your original login-page, dashboards, etc here) -->
+  <div id="login-page" style="display:none;" class="min-h-screen relative flex items-center justify-center p-4 bg-gradient-to-b from-[#eaf2fc] to-[#dceaf9]">
+      <!-- (Paste existing login HTML here) -->
+      <div class="relative z-10 w-full max-w-[420px] flex flex-col items-center">
+        <img src="https://iili.io/qkieRf9.png" class="w-[90px] h-[90px] rounded-full border-[3px] border-white shadow-sm bg-white mb-4">
+        <h1 class="text-[32px] font-extrabold text-[#00004d] tracking-widest font-algerian">Shiksha</h1>
+        <p class="text-[11px] font-bold text-[#00004d] tracking-widest font-comfortaa uppercase">(A Career Institute of Arts)</p>
+        
+        <div class="bg-white w-full px-8 py-10 rounded-xl shadow-lg mt-6 relative">
+          <div class="absolute top-4 right-5 cursor-pointer" onclick="showPage('admin-login-page')">
+            <i class="fas fa-university text-gray-800"></i>
+            <span class="text-[8px] font-bold block">Admin</span>
+          </div>
+          <h2 class="text-center font-bold mb-8">STUDENT LOGIN</h2>
+          <input type="text" id="login-adm" placeholder="Student ID" class="w-full mb-4 p-3 border rounded">
+          <input type="text" id="login-dob" onfocus="(this.type='date')" placeholder="DOB" class="w-full mb-4 p-3 border rounded">
+          <button onclick="requestOTP()" class="w-full bg-[#00004d] text-white p-3 rounded font-bold">LOGIN</button>
+        </div>
+      </div>
+  </div>
+
+  <!-- (ADD ALL OTHER DIVS: otp-page, admin-login-page, student-dashboard, admin-dashboard, modals) -->
 
   <script src="assets/js/script.js"></script>
   <script>
