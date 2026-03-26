@@ -4,7 +4,7 @@ body, html {
     width: 100%;
     height: 100%;
     overflow: hidden;
-    background-color: #000066; /* Match your brand color */
+    background-color: #ffffff; /* Changed from blue to pure white */
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
 }
 
@@ -15,53 +15,41 @@ body, html {
     width: 100%;
     height: 100%;
     border: none;
-    display: none; /* Hidden until loaded */
+    display: none; 
+    background-color: #ffffff;
 }
 
-/* Google Drive-style Splash Screen */
+/* Full-Screen Eye-Catching Splash Screen */
 #loading-screen {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #ffffff; /* Clean white background */
+    width: 100vw;
+    height: 100vh;
+    background-color: #ffffff;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 0.5s ease-out, visibility 0.5s;
+    opacity: 1;
+    visibility: visible;
+    transition: opacity 0.4s ease-out;
 }
 
 .splash-logo {
-    width: 100px;
-    height: auto;
-    animation: fadeInScale 0.8s ease-out;
+    /* Responsive Large Logo */
+    height: 85vh; 
+    width: 90vw;
+    object-fit: contain; /* Ensures logo isn't distorted */
+    animation: scaleIn 0.6s ease-out;
 }
 
+/* Removed splash-text as the logo is now full-screen */
 .splash-text {
-    margin-top: 20px;
-    font-size: 24px;
-    font-weight: 500;
-    color: #5f6368; /* Minimal professional grey */
-    letter-spacing: 4px;
-    font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-    text-transform: uppercase;
-    animation: fadeIn 1.2s ease-in;
+    display: none;
 }
 
-@keyframes fadeInScale {
-    0% { opacity: 0; transform: scale(0.9); }
+@keyframes scaleIn {
+    0% { opacity: 0; transform: scale(0.95); }
     100% { opacity: 1; transform: scale(1); }
-}
-
-@keyframes fadeIn {
-    0% { opacity: 0; }
-    100% { opacity: 1; }
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
 }
