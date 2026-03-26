@@ -19,37 +19,37 @@ body, html {
     background-color: #ffffff;
 }
 
-/* Full-Screen Eye-Catching Splash Screen */
+/* Full-Screen White Splash Screen */
 #loading-screen {
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #ffffff;
+    background-color: #ffffff; /* Pure white */
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
     opacity: 1;
     visibility: visible;
-    transition: opacity 0.4s ease-out;
+    transition: opacity 0.4s ease-in-out;
 }
 
 .splash-logo {
-    /* Responsive Large Logo */
+    /* This makes the logo huge and centered */
     height: 85vh; 
     width: 90vw;
-    object-fit: contain; /* Ensures logo isn't distorted */
-    animation: scaleIn 0.6s ease-out;
+    object-fit: contain; /* Keeps logo shape perfect */
+    animation: zoomIn 0.5s ease-out;
 }
 
-/* Removed splash-text as the logo is now full-screen */
+@keyframes zoomIn {
+    0% { opacity: 0; transform: scale(0.8); }
+    100% { opacity: 1; transform: scale(1); }
+}
+
+/* Hide the old text to keep it clean like Google Drive */
 .splash-text {
     display: none;
-}
-
-@keyframes scaleIn {
-    0% { opacity: 0; transform: scale(0.95); }
-    100% { opacity: 1; transform: scale(1); }
 }
