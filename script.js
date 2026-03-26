@@ -1,5 +1,5 @@
 // --- CONFIGURATION ---
-const API_URL = 'PASTE_YOUR_APPS_SCRIPT_EXEC_URL_HERE'; 
+const API_URL = 'https://script.google.com/a/~/macros/s/AKfycbwsU2bPH4EfqzSX8N7zMxJDmoOH-uQPbMLObH3IB9iqbHTyiapq95SgeFZyVes_wrBF-g/exec'; 
 
 // --- API WRAPPER ---
 async function callAPI(action, data = {}) {
