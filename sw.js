@@ -1,12 +1,10 @@
-const CACHE_NAME = 'Gyandeep-v4';
+const CACHE_NAME = 'Gyandeep-v5'; // Changed to v5
 const ASSETS = [
     'index.html',
     'style.css',
     'app.js',
     'manifest.json',
-    'offline.html',
-    'icon-192.png',
-    'icon-512.png'
+    'offline.html'
 ];
 
 self.addEventListener('install', e => {
