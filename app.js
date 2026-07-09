@@ -1,4 +1,3 @@
-// Register Service Worker for PWA
 if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('sw.js')
@@ -7,31 +6,24 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-// Handle Iframe Loading
 const iframe = document.getElementById('app-frame');
 const loadingScreen = document.getElementById('loading-screen');
 
-const isMobile = window.innerWidth <= 768;
-
-if (isMobile) {
-    // SUPER FAST MOBILE START: No delays, no waiting.
-    if (loadingScreen) loadingScreen.remove();
-    iframe.style.display = 'block';
-} else {
-    // DESKTOP: Keep the nice fade-in effect
-    iframe.onload = function() {
+// When the Google Script finished loading, hide the splash screen
+iframe.onload = function() {
+    setTimeout(() => {
+        loadingScreen.style.opacity = '0';
         setTimeout(() => {
-            loadingScreen.style.opacity = '0';
-            loadingScreen.style.visibility = 'hidden';
+            loadingScreen.style.display = 'none';
             iframe.style.display = 'block';
-            setTimeout(() => loadingScreen.remove(), 500);
-        }, 800);
-    };
-}
+        }, 500);
+    }, 1000);
+};
 
-// Prevent accidental pulldown refresh on mobile
-window.addEventListener('load', function() {
-    document.body.addEventListener('touchmove', function(e) {
-        if (e.touches.length > 1) e.preventDefault();
-    }, {passive: false});
-});
+// Emergency Fallback: If it takes too long (8 seconds), show the frame anyway
+setTimeout(() => {
+    if (loadingScreen.style.display !== 'none') {
+        loadingScreen.style.display = 'none';
+        iframe.style.display = 'block';
+    }
+}, 8000);
